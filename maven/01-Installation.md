@@ -72,6 +72,6 @@ https://maven.apache.org/settings.html#Proxies
 m2eclipse环境默认使用的自带的maven版本，如果想在命令行使用maven，避免两者产生不一致的行为，可以修改m2eclipse的配置，导入安装的maven。
 
 ##### MAVEN_OPTS
-可以使用```MAVEN_OPTS```来存放Java命令参数，例如设置为```-Xms128m -Xmx512m```来增大Java默认内存。
+可以使用环境变量```MAVEN_OPTS```来存放Java命令参数，例如设置为```-Xms128m -Xmx512m```来增大Java默认内存。
 
 ## 进阶
