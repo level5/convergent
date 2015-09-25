@@ -57,13 +57,13 @@ mvn install:install-file -Dfile=non-maven-proj.jar -DgroupId=some.group -Dartifa
 
 ##### scope的作用范围:
 
-|scope|编译的classpath|测试的classpath|运行的classpath|例子|
-|-|-|-|-|-|
-|compile| Y | Y | Y | spring-core |
-|test| - | Y | - | JUnit |
-|provided| Y | Y | - | servlet-api |
-|runtime| - | - | Y | JDBC |
-|system| Y | Y | - | Maven仓库之外的jar |
+|scope|编译的classpath|测试的classpath|运行的classpath|例子
+|-|-|-|-|-
+|compile| Y | Y | Y | spring-core
+|test| - | Y | - | JUnit
+|provided| Y | Y | - | servlet-api
+|runtime| - | - | Y | JDBC
+|system| Y | Y | - | Maven仓库之外的jar
 
 
 ##### 项目依赖的传递性
@@ -74,10 +74,10 @@ scope的依赖
 
 |           | compile   |   test        |  provided | runtime
 |-----------|-----------|---------------|-----------|-----------
-| compile   | compile   |               |           | runtime
-| test      | test      |               |           | test
-| provided  | provided  |               | provided  | provided
-| runtime   | runtime   |               |           | runtime
+| compile   | compile   |       -       |     -     | runtime
+| test      | test      |      -        |      -    | test
+| provided  | provided  |        -      | provided  | provided
+| runtime   | runtime   |        -      |       -   | runtime
 
 ##### 多条路径依赖同一个project
 A -> B -> C(1.0); A -> D -> E -> C(2.0) ,会取哪个版本的C呢？
