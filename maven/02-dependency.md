@@ -49,7 +49,8 @@
 对于因为License等原因不能出现在中央仓库的jar，可以使用下面三种方式来处理
   1. 手动安装到本地仓库
 ```bash
-mvn install:install-file -Dfile=non-maven-proj.jar -DgroupId=some.group -DartifactId=non-maven-proj -Dversion=1 -Dpackaging=jar
+mvn install:install-file -Dfile=non-maven-proj.jar                                    \
+-DgroupId=some.group -DartifactId=non-maven-proj -Dversion=1 -Dpackaging=jar
 ```
   2. 建立自己的远程仓库
   3. 将```scope```设置为```system```，定义一个```systemPath```，这种方式不推荐。
