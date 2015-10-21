@@ -302,3 +302,45 @@ git rebase master server # 再将server分支rebase到master上
 什么是`git push --force`?
 
 ### git 服务器上的协议
+
+#### local protocol
+```bash
+git remote add local_proj /opt/git/project.git # 增加一个本地仓库
+
+git clone /opt/git/project.git # 克隆本地仓库，Git 会尝试使用硬链接（hard link）或直接复制所需要的文件
+git clone file:///opt/git/project.git # 稍微不同，Git 会触发平时用于网路传输资料的进程
+
+```
+
+#### HTTP protocol
+
+##### Smart HTTP protocol
+
+### git tools
+
+```bash
+
+git log --abbrev-commit --pretty=oneline # --abbrev-commit 显示SHA1简短形式
+
+git rev-parse branch
+
+# 引用日志
+git reflog
+git show HEAD@{5} # HEAD在5次前的操作
+
+git show HEAD^ # HEAD的祖先
+git show HEAD~ # 和上面等价
+git show HEAD~2 # 等价 git show HEAD^^
+
+```
+
+
+```bash
+
+git commit --amend
+
+git rebase -i HEAD~3
+
+# 这里的HEAD~3是想修改的父提交
+
+```
