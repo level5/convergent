@@ -36,7 +36,6 @@ git diff master
 git diff --cached
 git diff --cached HEAD
 
-# 看上去暂存区上的内容都是属于工作区的
 
 
 ```
@@ -50,6 +49,20 @@ git log --oneline
 git log --graph
 
 git log --pretty=
+
+```
+
+### reset
+
+```bash
+
+git reset
+
+git reset --hard
+
+git reset --soft
+
+git reset --mixed
 
 ```
 

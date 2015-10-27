@@ -10,6 +10,41 @@
 > 在 Windows 系统中，Git 会查找 `$HOME` 目录下（一般情况下是 `C:\Users\$USER`）的 `.gitconfig` 文件。 Git 同样也会寻找 `/etc/gitconfig` 文件，但只限于 MSys 的根目录下，即安装 Git 时所选的目标位置。
 
 ```bash
+
+# 对三个config文件进行编辑
+
+git config -e
+
+git config -e --global
+
+git config -e --system
+
+```
+
+```bash
 # 进行
 git config --system
 ```
+
+
+#### 和merge相关的配置
+
+```ini
+[merge]
+    conflictstyle = merge
+    tool = kdiff3
+[mergetool "kdiff3"]
+    path = c:/Program Files/KDiff3/kdiff3.exe
+[diff]
+    tool = kdiff3
+    guitool = kdiff3
+[difftool "kdiff3"]
+    path = c:/Program Files/KDiff3/kdiff3.exe
+```
+
+* `merge.conflictstyle`冲突文件中冲突的标记风格，有两种可用风格，`merge`和`diff3`
+* `merge.tool` 设定执行`git mergetool`进行冲突解决时调用的图形化工具，
+如果设定为其他没有内置支持的工具时，需要通过`mergetool.<tool>.cmd`来对自定义工具的命令行进行设置
+* `mergetool.<tool>.path` 设置工具的暗转位置
+* `mergetool.<tool>.cmd` 如果工具不在内置支持列表中，需要设置此命令
+* `merge.log`

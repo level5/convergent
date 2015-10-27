@@ -97,6 +97,8 @@ git commit --amend
 git reset HEAD [<file>]
 
 git checkout -- [<file>]
+
+git checkout [<point>] [-- files]
 ```
 
 ### git 远程操作
@@ -205,9 +207,28 @@ git branch --no-merged
 
 git branch -d <branch-name>
 
+
+
+
 ```
 
 #### 远程分支
+
+表示做`git fetch origin`的时候，强制进行引用替换。引号前面的是远程库的引用，引号后是本地库的引用。
+当执行`git fetch origin`的时候，远程库的所有分支复制到本地的远程分支
+```ini
+[remote "origin"]
+fetch = +refs/heads/*:refs/remotes/origin/*
+url = <url>
+```
+
+```bash
+git show-ref # 查看全部的本地引用
+
+git branch -r # 查看远程分支
+```
+
+
 
 ```bash
 git ls-remote
@@ -223,7 +244,10 @@ git clone -o <remote-name> ... # 更改默认远程仓库名
 
 ```
 
-假设你的网络里有一个在 git.ourcompany.com 的 Git 服务器。 如果你从这里克隆，Git 的 clone 命令会为你自动将其命名为 origin，拉取它的所有数据，创建一个指向它的 master 分支的指针，并且在本地将其命名为 origin/master。 Git 也会给你一个与 origin 的 master 分支在指向同一个地方的本地 master 分支，这样你就有工作的基础。
+假设你的网络里有一个在 git.ourcompany.com 的 Git 服务器。 如果你从这里克隆，Git 的 clone
+命令会为你自动将其命名为 origin，拉取它的所有数据，创建一个指向它的 master 分支的指针，
+并且在本地将其命名为 origin/master。 Git 也会给你一个与 origin 的 master 分支在指向同一个地方的本地 master 分支，
+这样你就有工作的基础。
 
 
 ```bash
@@ -232,13 +256,24 @@ git push <remote-name> [<local-ref>:]<remote-ref>
 git push origin HEAD:refs/heads/new-branch
 git push origin new-branch # 将本地的new-branch推送到服务器上生成new-branch
 
+git push origin :<remote-ref> # 可以采用这样的方式来删除一个引用，可以删除一个远程分支或者标签
+
 # 获取新生成的远程分支
 git fetch origin
+
+# 远程分支refs/romotes/origin/hello-1可以简写为origin/hello-1
 # 这个时候new-branch是不可编辑的，可以
+
 git merge origin/new-branch # 来合并到当前分支
 
+git checkout -b <new-branch> <start-point> # 创建并且换到新的分支
 
 git checkout -b new-branch origin/new-branch # 来建立自己的分支， 这个新的分支叫做跟踪分支
+# 跟踪分支在执行pull和push和检查状态的时候，会和远程仓库交互。
+# 而普通的分支执行pull和push操作的时候是会报错的。
+
+# origin/new-branch是一个远程分支，不存在其他远程库上有这个分支，可以使用下面的命令创建分支
+git checkout new-branch # 这样可以同时完成分支的创建和切换
 
 # 这个新的分支叫做跟踪分支，可以自动识别去哪个服务器抓取，合并
 git pull
@@ -260,6 +295,80 @@ git pull # 相当于 git fetch; git merge;
 git push origin --delete new-branch2 # 删除一个远程分支（可以找回）
 ```
 
+```ini
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[branch "hello-1.x"]
+    remote = origin
+    merge = refs/heads/hello-1.xs
+```
+
+```bash
+# 也可以使用 --track来要求建立跟踪
+git checkout --track -b hello-j.x hello-1.x
+```
+
+```ini
+[branch "hello-j.x"]
+    remote = .
+    merge = refs/heads/hello-l.x
+```
+
+
+```bash
+
+git remote add new-remote <url> # 添加新的远程仓库
+
+git fetch # 默认从origin获取
+
+# 如果要从new-remote获取，需要指定
+git fetch new-remote
+
+```
+
+这个时候，会新增加config配置
+
+```ini
+[remote "new-remote"]
+    url = <url>
+    fetch = +refs/head/*:refs/remotes/new-remote/*
+```
+
+修改远程仓库，一种方式是修改`.git/config`文件，使用`git config`命令。
+一种是使用`git remote`命令
+
+```bash
+git remote set-url new-remote <url>
+
+# fetch和push可以分开设置
+git remote set-url --push new-remote <url2>
+```
+
+这个时候,config配置会新增`pushurl`
+
+```ini
+[remote "new-remote"]
+    url = <url>
+    fetch = +refs/head/*:refs/remotes/new-remote/*
+    pushurl = <url2>
+```
+
+
+```bash
+
+# 重命名为user2
+git remote rename new-remote user2
+
+# 多个版本库同时更新
+git remote update
+# 如果想让某个版本库在执行git remote update时忽略跟新
+git config remote.user2.skipDefaultUpdate true
+
+# 删除注册的远程仓库
+git remote rm user2
+```
+
 ### git 分支的合并
 
 ```bash
@@ -274,7 +383,9 @@ git rebase master
 git checkout master
 git merge fix53 # 这是就可以进行一次fast-foward的合并了。
 
-# onto操作
+# onto操作 git rebase --onto <newbranch> <since> <till>
+# <since> <till> 类似于 since..till
+#
 # server是从master出来的分支，client是在server数次提交之后上出来的分支，然后也有数次提交
 # 取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，然后把它们在 master 分支上重演一遍
 # 这个时候，client分支上做的修改，但是不包括server分支上的修改，rebase到了master分支上
@@ -297,9 +408,15 @@ git rebase master server # 再将server分支rebase到master上
 # 从不对已推送至别处的提交执行rebase操作
 ###########################################
 
+
+# merge的时候如果conflict了的话
+# git reset 重置暂存区
+git reset
+
+
 ```
 
-什么是`git push --force`?
+什么是`git push --force`? 服务器上一般只允许fast-foward,这里是强制做非fast-foward.
 
 ### git 服务器上的协议
 
@@ -334,13 +451,31 @@ git show HEAD~2 # 等价 git show HEAD^^
 
 ```
 
+```bash
+git checkout master
+git reset --soft HEAD^^ # 回退到倒数第三个commit，但是不改变当前的工作区和暂存区
+# 这个时候因为暂存区还是之前的最后一个提交的代码，这个时候commit就将最后两次提交的代码合并成为一个了
+git commit
+git checkout master
+git reset --hard HEAD@{1} # 这里是为了恢复引用到合并的提交
+
+git cherry-pick <commit> # 将指定的commit合并到当前分支上
+```
 
 ```bash
 
 git commit --amend
 
+# -i 交互式 rebase
 git rebase -i HEAD~3
 
 # 这里的HEAD~3是想修改的父提交
 
 ```
+
+
+```bash
+
+# git patch操作
+
+#am apply email
