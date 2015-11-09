@@ -99,6 +99,9 @@ git reset HEAD [<file>]
 git checkout -- [<file>]
 
 git checkout [<point>] [-- files]
+
+# --force When switching branches, proceed even if the index or the working tree differs from HEAD. This is used to throw away local changes.
+git checkout -f step-0
 ```
 
 ### git 远程操作
@@ -269,6 +272,13 @@ git merge origin/new-branch # 来合并到当前分支
 git checkout -b <new-branch> <start-point> # 创建并且换到新的分支
 
 git checkout -b new-branch origin/new-branch # 来建立自己的分支， 这个新的分支叫做跟踪分支
+git checkout --track origin/new-branch # 创建一个本地分支名为new-branch的跟踪分支
+# 设置或者修改一个已存在的本地分支跟踪的上游分支
+git checkout new-branch
+git branch -u origin/new-branch2
+# 或者
+git branch --set-upstream-to origin/new-branch2
+
 # 跟踪分支在执行pull和push和检查状态的时候，会和远程仓库交互。
 # 而普通的分支执行pull和push操作的时候是会报错的。
 
@@ -279,14 +289,6 @@ git checkout new-branch # 这样可以同时完成分支的创建和切换
 git pull
 
 git branch -vv # 列出所有的跟踪分支
-
-
-# 设置或者修改本地分支跟踪的上游分支
-git checkout new-branch
-git branch -u origin/new-branch2
-# 或者
-git branch --set-upstream-to origin/new-branch2
-
 
 git fetch # 只是拉取，等待自己手动合并
 
@@ -471,11 +473,13 @@ git rebase -i HEAD~3
 
 # 这里的HEAD~3是想修改的父提交
 
-```
 
+```
 
 ```bash
 
-# git patch操作
+# --depth=14 表示只下载最后14次提交，这样就可以让下载速度更快，体积更小
+git clone --depth=14 https://github.com/angular/angular-phonecat.git
 
-#am apply email
+
+```
