@@ -6,10 +6,9 @@ git commit --amend --allow-empty --reset-author
 
 ```
 
-
 ```bash
 
-# 清除当前工作区中没有加入版本库的文件和目录
+# 清除当前工作区中没有加入版本库的文件和目录，可以删除新增的文件
 git clean -fd
 
 git rm --cached

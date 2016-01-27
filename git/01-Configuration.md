@@ -26,7 +26,19 @@ git config -e --system
 git config --system
 ```
 
+#### HTTP和HTTPS的代理配置
+```ini
 
+```
+
+#### 和push相关的操作
+
+`push.default`参数可以控制不带参数的`git push`的行为
+- `nothing`: 什么也不push
+- `matching`: push所有匹配的branch（所有branch相同名字的branch）
+- `upstream`: push当前的跟踪分支到远程。（对于跟踪分支，tracking是以前的称呼，现在的称呼是upstream）
+- `current`: push当前分支到相同名字的分支
+- `simple`: 类似于`upstream`, 但是会拒绝不同名字的提交
 #### 和merge相关的配置
 
 ```ini
