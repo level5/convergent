@@ -1,0 +1,41 @@
+
+@nice-blue: #5B83AD;                // variable
+@light-blue: @nice-blue + #111;
+
+
+#header {
+    color: @nice-blue; // use variable
+
+    // nest
+    .navigation {
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 300px;
+    }
+
+}
+
+
+// mixins
+
+#menu a {
+    #header;
+}
+
+// classic clearfix hax
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  // 当前selector的父selector，这个方式生成的两个selector之间没有空格
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
