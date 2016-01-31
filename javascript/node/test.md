@@ -12,16 +12,11 @@ $ npm install chai
 
 我喜欢`should`风格, 但是chai的should有点弱，还是比较喜欢should库，只是grommet用的chai，就凑合用吧。
 
-#### 被测试代码:
 ```js
 // demo.js
 exports.max = (a, b) =>　a > b ? a : b;
 exports.min = exports.max;
-```
 
-#### case:
-
-```js
 // demo-test.js
 var should = require('chai').should();
 var demo = require('./demo');
@@ -39,7 +34,6 @@ describe('This is a demo', () => {
 
 ```
 
-#### 执行：
 执行测试：
 ```bash
 $ mocha demo-test.js
@@ -65,7 +59,7 @@ $ mocha demo-test.js
 
 ```
 
-如果不全局安装的话，就需要指定对应module的bin目录下面的文件
+如果不全局安装mocha的话，就需要指定对应module的bin目录下面的文件
 ```bash
 $ ../node_modules/mocha/bin/mocha demo-test.js
 ```
@@ -80,7 +74,7 @@ $ ../node_modules/mocha/bin/mocha demo-test.js
 }
 ```
 
-如果需要使用`node`还不支持的语法，使用babel(需要先安装babel)来执行：
+如果需要使用`node`还不支持的es6语法，使用babel(需要先安装babel)来执行：
 ```bash
 $ mocha --compilers js:babel-core/register -R spec test/demo-test.js
 ```
@@ -90,11 +84,6 @@ $ mocha --compilers js:babel-core/register -R spec test/demo-test.js
 #!/bin/bash
 find . -name '*-test.js' | xargs mocha -R spec
 ```
-
-
-
-
-#### 示例
 
 ```js
 it('测试chai should的用法', () => {
@@ -115,7 +104,7 @@ it('测试chai should的用法', () => {
 
 #### 异步case
 
-对于异步的case，mocha的写法和同步的写法不一样。
+对于异步的case，mocha的写法和同步的写法不一样，如果错误的使用同步的方式，case会永远执行成功。
 ```js
 // demo.js
 exports.asyncCall = (fn) => {
@@ -132,6 +121,7 @@ it('错误的测试异步调用', () => {
   });
 })
 ```
+
 虽然case写错了，但是执行还是正常结束。
 ```bash
 $ mocha demo-test.js
@@ -143,6 +133,7 @@ $ mocha demo-test.js
 
   1 passing (15ms)
 ```
+
 正确的异步case的写法是, 对方法传入一个参数`done`，然后在异步调用中执行`done()`表示方法结束。
 ```js
 // demo-test.js
@@ -180,7 +171,7 @@ js:6:5)
 ```
 这个之所以能够取得正确的结果，是因为对于没有捕获的Exception，node可以注册一个全局的处理函数。mocha可以通过这个全局的处理函数可以来捕获到这个异常。
 
-这个全局处理函数的注册方式
+这个全局处理函数的注册方式是：
 ```js
 var process = require('process')
 process.on('uncaughtException', function(e) {
@@ -221,7 +212,7 @@ ed in this test.
 #### 异步case 使用promise
 
 
-对于`promise`来说，这种异步case就直接返回promise就可以了,这个时候测试方法不需要传入done。
+对于`promise`来说，这种异步case就直接返回promise就可以了,这个时候测试方法不要传入done。
 
 ```js
 // demo.js
@@ -351,13 +342,84 @@ describe('This is a demo', () => {
 
 如果还想对方法的调用做verify，使用mock，这是mock相对于stub多出来的功能。
 
+```js
+describe('This is a demo', () => {
+
+  it('mock method', sinon.test(function() {
+    let api = require('./customAPI');
+    let mock = this.mock(api);
+    mock.expects('get').once().withArgs('name').returns('Zanetti');
+
+    demo.hello().should.eql('hello Zenetti!');
+
+    mock.verify()
+
+  }));
+});
+```
 
 ## Rewire
-而对于module中没有export的方法，直接通过load进来是没有办法访问的，这个时候，可以使用rewire来达到测试没有export的函数。
 
+对于module中没有exports的方法，是没有办法直接访问的，这个时候，可以使用rewire来达到测试他们。rewire的实现原理是将定义的模块文件读进来修改一下。是的返回的对象可以访问到module这个作用域中定义的变量。
+
+安装:
+```bash
+npm install rewire
+```
+
+使用方式：
+```js
+// demo.js
+// 没有exports出来
+var favoriteClub = "inter"
+var club = () => favoriteClub;
+
+// demo-test.js
+describe('This is a demo', () => {
+
+  it('test inner method', sinon.test(function() {
+    let rewire = require('rewire');
+    let demo = rewire('./demo');
+    demo.__set__('favoriteClub', 'Atlanta')
+    let club = demo.__get__('club');
+    club().should.eql("Atlanta");
+
+  }));
+
+});
+```
 
 ## Code Coverage
 
-### framework 1
+### istanbul
 
-### framwork 2
+```bash
+# 安装
+$ npm install -g istanbul
+# 执行case
+$ istanbul cover ../node_modules/mocha/bin/_mocha -- -R spec demo-test.js
+
+#输出(同时生成一个coverage的文件夹)
+This is a demo
+  √ test inner method
+
+
+1 passing (13ms)
+
+=============================================================================
+Writing coverage object [c:\github\LaTeX\programming\code\javascript\test\covera
+ge\coverage.json]
+Writing coverage reports at [c:\github\LaTeX\programming\code\javascript\test\co
+verage]
+=============================================================================
+
+=============================== Coverage summary ===============================
+
+Statements   : 74.19% ( 23/31 )
+Branches     : 0% ( 0/4 )
+Functions    : 66.67% ( 2/3 )
+Lines        : 79.31% ( 23/29 )
+================================================================================
+```
+
+### ...
