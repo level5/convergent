@@ -261,6 +261,24 @@ it('promise plugin 检测', () => {
 - sandbox 方便的`restore`
 
 
+```js
+// 需要被解除依赖的module
+// customAPI.js
+module.exports = {
+  get: (key) => {
+    if (key === 'name') {
+      return 'Ronald'
+    } else {
+      return (void 0);
+    }
+  }
+}
+
+// 需要被测试的方法：
+// demo.js
+exports.hello = () => "hello " + api.get('name') + "!";
+```
+
 #### sandbox
 
 使用sinon的时候，每次执行完case我们都需要对mock的对象进行`restore`。
@@ -297,7 +315,7 @@ describe('This is a demo', () => {
 });
 ```
 
-这个时候，使用`sinon.test()`.同时要注意不是使用`sinon.spy()`，而是使用`this.spy()`. 不能使用arrow function了。因为arrow function的`this`是绑定到当前的`this`的。
+这个时候，使用`sinon.test()`作为被测试的case. 同时要注意case中不是使用`sinon.spy()`，而是使用`this.spy()`. 不能使用arrow function了，因为arrow function的`this`是绑定到当前定义arrow function的作用域的`this`的。
 
 #### spy
 
