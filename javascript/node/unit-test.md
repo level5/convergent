@@ -414,7 +414,8 @@ describe('This is a demo', () => {
 ```bash
 # 安装
 $ npm install -g istanbul
-# 执行case
+# 执行case（这里是因为我使用的windows，好像有点点问题需要这么写）
+# Linux应该写成这样就可以了（istanbul和mocha都全局安装了）：istanbul cover _mocha -- -R spec demo-test.js
 $ istanbul cover ../node_modules/mocha/bin/_mocha -- -R spec demo-test.js
 
 #输出(同时生成一个coverage的文件夹)
