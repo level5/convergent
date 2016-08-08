@@ -418,6 +418,8 @@ $ npm install -g istanbul
 # Linux应该写成这样就可以了（istanbul和mocha都全局安装了）：istanbul cover _mocha -- -R spec demo-test.js
 $ istanbul cover ../node_modules/mocha/bin/_mocha -- -R spec demo-test.js
 
+$ istanbul cover ../node_modules/mocha/bin/_mocha -- -R spec './**/*-test.js'
+
 #输出(同时生成一个coverage的文件夹)
 This is a demo
   √ test inner method
