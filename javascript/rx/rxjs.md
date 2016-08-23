@@ -46,6 +46,23 @@ Rx Pattern是Observer Pattern和Iterator Pattern的组合
 
 Operator操作observable,然后返回一个新的observable.
 
+#### 创建Observable
+* create
+  创建一个Observable。
+* Defer
+  只有在subscribe的时候才创建Observable，为每一个observer创建一个新的Observable
+* Empty, Never, Throw
+  - Empty，不会push元素，直接结束
+  - Never， 永远不会push元素，也不结束
+  - Throw， 直接抛出异常
+* fromXXX
+  各种数据结构转换为Observable
+* Interval
+  按一定时间间隔push整数，从0开始，每次加1
+* return / just
+  生成Observable，push单个元素。
+
+
 ### Single
 
 ### Subject
