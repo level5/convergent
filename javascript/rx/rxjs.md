@@ -49,19 +49,21 @@ Operator操作observable,然后返回一个新的observable.
 #### 创建Observable
 * create
   创建一个Observable。
-* Defer
+* defer
   只有在subscribe的时候才创建Observable，为每一个observer创建一个新的Observable
-* Empty, Never, Throw
+* empty, never, throw
   - Empty，不会push元素，直接结束
   - Never， 永远不会push元素，也不结束
   - Throw， 直接抛出异常
 * fromXXX
   各种数据结构转换为Observable
-* Interval
+* interval
   按一定时间间隔push整数，从0开始，每次加1
 * return / just
   生成Observable，push单个元素。
-
+* range
+  很好理解
+* doWhile, repeat, while
 
 ### Single
 
