@@ -108,5 +108,9 @@ Disposable.empty = { dispose: noop };
 * `scheduleRecursiveFuture()` 另外一个方法，类似于上面的，就是`action`最后一个参数被调用时，需要多介绍
 
 
+#### `CurrentThreadScheduler`
+
+默认的`scheduler`，使用的是
+
 
 ### `Subject`
