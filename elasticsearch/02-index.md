@@ -2,6 +2,19 @@
 
 索引对应数据库中的表， 文档对应成数据库表中的一条记录。  
 
+* index是一个逻辑的namespace，他指向一个或者多个物理的shard
+* shard是一个Lucene的instance，他有完整的search engine。
+
+  a shard is a single instance of Lucene, and is a complete search engine in its own right
+* shard是数据存放的地方。
+* primary shard和replica shard.
+  - 每一个document都属于一个primary shard
+  - replica shard就是primary shard的一份拷贝
+  - replica shard的作用就是数据备份和提供给查询使用
+  - primary shard和replica shard不会保存在同一个node中。
+
+    It doesn’t make sense to store copies of the same data on the same node.If we were to lose that node, we would lose all copies of our data.
+* 新index进来的document，会先保存在primary shard上，然后再被复制到replica shard上。
 ## Document
 
 document refers to the top-level, or root object that is serialized into JSON and stored in Elasticsearch under a unique ID.

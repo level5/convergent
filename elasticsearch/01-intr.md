@@ -143,6 +143,8 @@ PUT /website/blog/123/_create
 { ... }
 ```
 
+`op_type=create` 表示只有是新增时才生效
+
 #### 第二步：查询数据
 ```bash
 GET /megacorp/employee/1
@@ -173,6 +175,7 @@ curl -i -XHEAD http://localhost:9200/website/blog/123
   }
 }
 ```
+
 * `_index`: Where the document lives. `_index`必须是小写，而且不能以下划线`_`开头。
 * `_type`: The class of object that the document represents. A `_type` name can be lowercase or uppercase, but shouldn’t begin with an underscore or contain commas.
 * `_id`: The unique identifier for the document(是type中唯一还是整个indices唯一？)
@@ -213,12 +216,33 @@ GET /website/blog/123/_source
    "date":  "2014/01/01"
 }
 ```
+或者只想取`_source`中的某几个字段
+
+```
+GET /megacorp/employee/1/_source?_source=first_name,last_name
+```
+返回结果：
+```
+{
+  "last_name": "Smith",
+  "first_name": "John"
+}
+```
 
 #### 第三步： 简单的search
 
 * 查询`employee`的所有文档
 ```
 GET /megacorp/employee/_search
+```
+或者
+```
+GET /megacorp/employee/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
 ```
 
 * 查询last name中包含smith的文档,带上参数`q`
@@ -238,6 +262,8 @@ GET /megacorp/employee/_search
     }
 }
 ```
+
+
 
 更加复杂的查询：
 ```
@@ -259,6 +285,8 @@ GET /megacorp/employee/_search
     }
 }
 ```
+
+这里是先做了filter，然后在做查询。
 
 关于Query DSL.
 
