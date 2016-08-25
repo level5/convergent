@@ -21,18 +21,21 @@
 ### 运行
 
 ```bash
-cd elasticsearch-<version>
-./bin/elasticsearch
+
+$ cd elasticsearch-<version>
+$ ./bin/elasticsearch
+
 ```
 
 * `-d` 作为一个deamon在后台运行
+* windows下执行`bin\elasticsearch.bat`
 
 
 测试是否正常运行
 ```bash
-curl 'http://localhost:9200/?pretty' # pretty参数是在返回的json中增加换行。
+$ curl 'http://localhost:9200/?pretty'
 ```
-
+参数`pretty`用来美化返回结果，在json中插入换行和空格
 
 ### 部署成服务
 
@@ -41,6 +44,15 @@ curl 'http://localhost:9200/?pretty' # pretty参数是在返回的json中增加�
 ### kibana sense
 安装kibana sense方便交互测试。
 
+```bash
+
+$ ./bin/kibana plugin --install elastic/sense
+
+```
+
+### node之间通讯
+
+使用端口`9300`
 
 ### 交互
 
@@ -57,10 +69,11 @@ curl 'http://localhost:9200/?pretty' # pretty参数是在返回的json中增加�
 ### 术语
 
 * index
-inde的名字必须小写！不能以`_`开头。
+index的名字必须小写！不能以`_`开头。
   - index（名词）
   - index（动词）
   - inverted index
+  > every field in a document is indexed (has an inverted index) and thus is searchable. A field without an inverted index is not searchable.
 
 > while an index is just a logical namespace that groups together one or more shards
 

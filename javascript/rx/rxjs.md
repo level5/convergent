@@ -64,6 +64,8 @@ Operator操作observable,然后返回一个新的observable.
 * range
   很好理解
 * doWhile, repeat, while
+* start
+* timer
 
 ### Single
 
