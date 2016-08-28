@@ -16,7 +16,20 @@ All document APIs (get, index, delete, bulk, update, and mget) accept a routing 
 A custom routing value could be used to ensure that all related documents—for instance, all the documents belonging to the same user—are stored on the same shard.
 
 
-#### quorum
+#### create
 
+* consistency
 
-the requirement for a quorum is enforced only when number_of_replicas is greater than 1.
+  the requirement for a quorum is enforced only when number_of_replicas is greater than 1.
+
+* timeout
+
+## search
+
+### query phase
+
+### fetch phase
+1. coordinating node 决定哪些document需要fetch，并且发送多个GET请求到相关的shard
+2. 每一个对应的shard读取对应的documents，返回给coordinating node
+3. coordinating node返回结果
+###
