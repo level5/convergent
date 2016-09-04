@@ -411,6 +411,10 @@ GET /_search
 
 ### scroll
 
+The costly part of deep pagination is the global sorting of results, but if we disable sorting, then we can return all documents quite cheaply.
+
+
+
 这么说，分析器应该有两部分，一个是保存进来的文档需要经过分析器处理，生成倒排索引？
 
 然后的还有一个查询的分析器，分析查询的字段，然后再在倒排索引中查询？ s

@@ -371,6 +371,10 @@ POST /_aliases
 }
 ```
 
+#### near-real-time
+
+In Elasticsearch, this lightweight process of writing and opening a new segment is called a refresh. By default, every shard is refreshed automatically once every second. This is why we say that Elasticsearch has near real-time search: document changes are not visible to search immediately, but will become visible within 1 second.
+
 
 
 ### Document
