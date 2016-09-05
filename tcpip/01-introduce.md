@@ -24,7 +24,12 @@ The general format of a networking message consists of a ***header***, followed 
 
 Three basic methods are used to address and transmit data between networked devices. A ***unicast*** transmission goes from one device to exactly one other; this is the most common method used for most message transactions. A ***broadcast*** transmission is sent from one device to all connected devices on a network. A ***multicast*** transmission is addressed and sent to a select group of devices.
 
-Networks are usually configured to share resources using one of two basic structural models. In a ***peer-to-peer*** network, each device is an equal, and none are assigned particular jobs. In a ***client-server*** network, however, devices are assigned particular roles—a small number of powerful computers are set up as servers and respond to requests from the other devices, which are clients. 
+Networks are usually configured to share resources using one of two basic structural models. In a ***peer-to-peer*** network, each device is an equal, and none are assigned particular jobs. In a ***client-server*** network, however, devices are assigned particular roles—a small number of powerful computers are set up as servers and respond to requests from the other devices, which are clients.
+
+Several terms are often used to describe the relative sizes of networks and parts of networks. The most basic term is ***network*** itself, which can refer to most anything, but often means a set of devices connected using an OSI layer 2 technology. A ***subnetwork*** is a part of a network (or internetwork), as is a segment, though the latter often has a more specific meaning in certain technologies. An ***internetwork*** refers either generically to a very large network, or specifically, to a set of layer 2 networks connected using routers at layer 3.
+
+The generic noun ***internet*** is a short form for the word internetwork, while the proper noun Internet refers to the global internetwork of TCP/IP networks that we all know and use. The term ***intranet*** refers to an internal network that uses TCP/IP technologies as the Internet does. An ***extranet*** is like an intranet that is extended to individuals or organizations outside the company.
+
 
 ## 分层
 
