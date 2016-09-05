@@ -1,5 +1,9 @@
 # 概述
 
+## 总结
+
+### 基本概念
+
  A ***network*** is a set of hardware devices connected together, either physically or logically. This allows them to exchange information.
 
  A networking ***protocol*** defines a set of rules, algorithms, messages, and other mechanisms that enables software and hardware in networked devices to communicate effectively. A protocol usually describes a means for communication between corresponding entities at the same OSI Reference Model layer in two or more devices.
@@ -30,6 +34,9 @@ Several terms are often used to describe the relative sizes of networks and part
 
 The generic noun ***internet*** is a short form for the word internetwork, while the proper noun Internet refers to the global internetwork of TCP/IP networks that we all know and use. The term ***intranet*** refers to an internal network that uses TCP/IP technologies as the Internet does. An ***extranet*** is like an intranet that is extended to individuals or organizations outside the company.
 
+### 性能概念
+
+While ***performance*** is one of the most important characteristics of any network, there are others that are equally important. In many cases, you must weigh the ***cost, quality, reliability, expandability, maintainability***, and other attributes of a network against overall performance. The faster you want your network to go, the more difficult it is to ensure that these other attributes are kept at sufficiently high levels.
 
 ## 分层
 
@@ -92,6 +99,11 @@ These protocols do not establish a connection between devices. As soon as a devi
 * ***Unicast Addressing*** Unicast delivery requires that a message should be addressed to a specific recipient.
 * ***Broadcast Addressing*** Broadcasts are normally implemented via a special address that is reserved for that function. Whenever devices see a message sent to that address, they all interpret it as "This message goes to everyone."
 * ***Multicast Addressing*** Multicasts are the most complex type of message because they require a means of identifying a set of specific devices that will receive a message. It is often necessary to create several such groups, which may or may not partially overlap in their membership. Some mechanism is needed to manage which devices are in which groups.
+
+## 性能
+
+###度量：speed， bandwidth, throughput, latency
+
 ## IP地址
 
 * A类  `[0][7位网络号][24位主机号]`
