@@ -38,19 +38,6 @@ The generic noun ***internet*** is a short form for the word internetwork, while
 ### 性能概念
 
 While ***performance*** is one of the most important characteristics of any network, there are others that are equally important. In many cases, you must weigh the ***cost, quality, reliability, expandability, maintainability***, and other attributes of a network against overall performance. The faster you want your network to go, the more difficult it is to ensure that these other attributes are kept at sufficiently high levels.
-=======
-### 数字
-
-A bit is also sometimes called a ***flag***
-
-The term ***character*** is also used to express a set of 8 bits
-
-* if you OR a bit with a value known to be 1, the result will always be 1, no matter what the other value is. In contrast, if you OR with a 0, the original value, 1 or 0, is not changed.
-* If you AND a bit with 0, it will clear it to 0, regardless of what the bit was before, while ANDing with 1 will leave the bit unchanged
-* if you XOR with a 1, the input value is flipped, while XORing with a 0 causes the input to be unchanged
-
-The properties of the OR and AND boolean functions make them useful when certain bits of a data item need to be set (changed to 1) or cleared (changed to 0). This process is called bit ***masking***.
->>>>>>> osi
 
 The three terms used most often to refer to the overall performance of a network are ***speed***, ***bandwidth***, and ***throughput***. These are related and often used interchangeably, but are not identical. The term ***speed*** is the most generic and often refers to the rated or nominal speed of a networking technology. ***Bandwidth*** can mean either the width of a frequency band used by a technology or more generally, data capacity, where it's used as more of a theoretical measure. ***Throughput*** is a specific measure of how much data flows over a channel in a given period of time. It is usually a practical measurement.
 
@@ -72,7 +59,19 @@ There are three basic operating modes that describe how data is sent between con
 
 * In ***simplex*** operation, a network cable or communications channel can send information in only one direction; it's a one-way street.
 * Technologies that employ ***half-duplex*** operation are capable of sending information in both directions between two nodes, but only one direction or the other can be utilized at a time.
-* In ***full-duplex*** operation, a connection between two devices is capable of sending data in both directions simultaneously. Full-duplex channels can be constructed either as a pair of simplex links (as described earlier) or by using one channel that's designed to permit bidirectional simultaneous transmissions. 
+* In ***full-duplex*** operation, a connection between two devices is capable of sending data in both directions simultaneously. Full-duplex channels can be constructed either as a pair of simplex links (as described earlier) or by using one channel that's designed to permit bidirectional simultaneous transmissions.
+
+### 数字
+
+A bit is also sometimes called a ***flag***
+
+The term ***character*** is also used to express a set of 8 bits
+
+* if you OR a bit with a value known to be 1, the result will always be 1, no matter what the other value is. In contrast, if you OR with a 0, the original value, 1 or 0, is not changed.
+* If you AND a bit with 0, it will clear it to 0, regardless of what the bit was before, while ANDing with 1 will leave the bit unchanged
+* if you XOR with a 1, the input value is flipped, while XORing with a 0 causes the input to be unchanged
+
+The properties of the OR and AND boolean functions make them useful when certain bits of a data item need to be set (changed to 1) or cleared (changed to 0). This process is called bit ***masking***.
 
 ## 分层
 
