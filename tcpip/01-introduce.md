@@ -38,6 +38,28 @@ The generic noun ***internet*** is a short form for the word internetwork, while
 
 While ***performance*** is one of the most important characteristics of any network, there are others that are equally important. In many cases, you must weigh the ***cost, quality, reliability, expandability, maintainability***, and other attributes of a network against overall performance. The faster you want your network to go, the more difficult it is to ensure that these other attributes are kept at sufficiently high levels.
 
+The three terms used most often to refer to the overall performance of a network are ***speed***, ***bandwidth***, and ***throughput***. These are related and often used interchangeably, but are not identical. The term ***speed*** is the most generic and often refers to the rated or nominal speed of a networking technology. ***Bandwidth*** can mean either the width of a frequency band used by a technology or more generally, data capacity, where it's used as more of a theoretical measure. ***Throughput*** is a specific measure of how much data flows over a channel in a given period of time. It is usually a practical measurement.
+
+***Latency*** is a very important, often overlooked term, which refers to the timing of data transfers on a communications channel or network.
+* One important aspect of latency is how long it takes from the time a request for data is made until it starts to arrive.
+* Another aspect is how much control a device has over the timing of the data that is sent, and whether the network can be arranged to allow for the consistent delivery of data over a period of time.
+
+Where bandwidth and throughput indicate how fast data moves across a network, latency describes the nature of how it is conveyed. It is most often used to describe the delay between the time that data is requested and the time when it arrives. A networking technology with very high throughput and bad (high) latency can be worse for some applications than one with relatively low throughput but good (low) latency.
+
+In most cases in discussions of networking performance, the lowercase letter b refers to bits and the uppercase B to bytes. However, these conventions are not always universally followed, so context must be used to interpret a particular measurement.
+
+The unit most often used to express networking throughput is bits per second or bps. This term is often expressed in thousands, millions, or billions as Kbps, Mbps, or Gbps. ***It almost always uses the decimal, not binary***, versions of the kilo, mega, or giga multipliers.
+
+The baud and bps units are often treated equivalently, but are not the same. Baud measures not the throughput of a network but its signaling rate, meaning the number of times that the signal changes value in each second. Since modern encoding and modulation techniques often encode either greater or less than one bit value into each such transition, the throughput and baud rate of network technologies are usually different.
+
+The theoretical rated speed of a network is never achieved in practice for a number of reasons. ***Overhead issues*** mean that not all of the possible capacity of a network can be used for data. ***External factors*** such as hardware bandwidth limitations restrict data input and output. ***Configuration problems*** can also greatly reduce real-world performance. Finally, it is important to remember that ***many technologies are asymmetric***, offering higher speed in one direction than the other, and often, the larger number is the one that is advertised.
+
+There are three basic operating modes that describe how data is sent between connected devices on a network. In a simplex operation, data can flow in only one direction between two devices. Half-duplex networks allow any device to transmit, but only one may do so at a time. Full-duplex operation means two attached devices can each transmit and receive simultaneously. The latter offers the greatest potential performance, because forcing one device to wait for another before sending data does not decrease throughput.
+
+* In ***simplex*** operation, a network cable or communications channel can send information in only one direction; it's a one-way street.
+* Technologies that employ ***half-duplex*** operation are capable of sending information in both directions between two nodes, but only one direction or the other can be utilized at a time.
+* In ***full-duplex*** operation, a connection between two devices is capable of sending data in both directions simultaneously. Full-duplex channels can be constructed either as a pair of simplex links (as described earlier) or by using one channel that's designed to permit bidirectional simultaneous transmissions. 
+
 ## 分层
 
 dividing their functions into layers, each of which contains hardware and software elements. Each layer is responsible for performing a particular type of task and interacts with the layers above and below it. Layers are conceptually arranged into a vertical stack. Lower layers are charged with more concrete tasks such as hardware signaling and low-level communication; they provide services to the higher layers. The higher layers, in turn, use these services to implement more abstract functions such as implementing user applications.
@@ -103,6 +125,7 @@ These protocols do not establish a connection between devices. As soon as a devi
 ## 性能
 
 ###度量：speed， bandwidth, throughput, latency
+
 
 ## IP地址
 
