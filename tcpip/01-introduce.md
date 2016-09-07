@@ -30,6 +30,7 @@ Three basic methods are used to address and transmit data between networked devi
 
 Networks are usually configured to share resources using one of two basic structural models. In a ***peer-to-peer*** network, each device is an equal, and none are assigned particular jobs. In a ***client-server*** network, however, devices are assigned particular roles—a small number of powerful computers are set up as servers and respond to requests from the other devices, which are clients.
 
+<<<<<<< HEAD
 Several terms are often used to describe the relative sizes of networks and parts of networks. The most basic term is ***network*** itself, which can refer to most anything, but often means a set of devices connected using an OSI layer 2 technology. A ***subnetwork*** is a part of a network (or internetwork), as is a segment, though the latter often has a more specific meaning in certain technologies. An ***internetwork*** refers either generically to a very large network, or specifically, to a set of layer 2 networks connected using routers at layer 3.
 
 The generic noun ***internet*** is a short form for the word internetwork, while the proper noun Internet refers to the global internetwork of TCP/IP networks that we all know and use. The term ***intranet*** refers to an internal network that uses TCP/IP technologies as the Internet does. An ***extranet*** is like an intranet that is extended to individuals or organizations outside the company.
@@ -37,6 +38,19 @@ The generic noun ***internet*** is a short form for the word internetwork, while
 ### 性能概念
 
 While ***performance*** is one of the most important characteristics of any network, there are others that are equally important. In many cases, you must weigh the ***cost, quality, reliability, expandability, maintainability***, and other attributes of a network against overall performance. The faster you want your network to go, the more difficult it is to ensure that these other attributes are kept at sufficiently high levels.
+=======
+### 数字
+
+A bit is also sometimes called a ***flag***
+
+The term ***character*** is also used to express a set of 8 bits
+
+* if you OR a bit with a value known to be 1, the result will always be 1, no matter what the other value is. In contrast, if you OR with a 0, the original value, 1 or 0, is not changed.
+* If you AND a bit with 0, it will clear it to 0, regardless of what the bit was before, while ANDing with 1 will leave the bit unchanged
+* if you XOR with a 1, the input value is flipped, while XORing with a 0 causes the input to be unchanged
+
+The properties of the OR and AND boolean functions make them useful when certain bits of a data item need to be set (changed to 1) or cleared (changed to 0). This process is called bit ***masking***.
+>>>>>>> osi
 
 The three terms used most often to refer to the overall performance of a network are ***speed***, ***bandwidth***, and ***throughput***. These are related and often used interchangeably, but are not identical. The term ***speed*** is the most generic and often refers to the rated or nominal speed of a networking technology. ***Bandwidth*** can mean either the width of a frequency band used by a technology or more generally, data capacity, where it's used as more of a theoretical measure. ***Throughput*** is a specific measure of how much data flows over a channel in a given period of time. It is usually a practical measurement.
 
