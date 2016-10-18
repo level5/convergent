@@ -39,4 +39,32 @@ In the context of the OSI Reference Model, routing is an activity that generally
 2. The intermediate device (often called a router) receives the message at the physical layer. It is passed up to the data link layer, where it is processed, checked for errors and so on, and the data link layer headers are removed. The resulting packet is passed up to the network layer. There, the intermediate device determines if the destination machine is on its local network, or if it needs to be forwarded to another intermediate device. It then repackages the message and passes it back down to the data link layer to be sent on the next leg of its journey.
 3. After several potential intermediate devices handle the message, it eventually reaches its destination. Here, it travels back up the protocol stack until it reaches the same layer as the one from the application that generated the message on the originating machine.
 
-The key to this description is that in the intermediate devices, ***the message travels back up the OSI layers only to the network layer***. It is then repackaged and sent back along its way. 
+The key to this description is that in the intermediate devices, ***the message travels back up the OSI layers only to the network layer***. It is then repackaged and sent back along its way.
+
+## 7 Layer
+
+### physical Layer
+
+### Data Link Layer
+
+### Network Layer
+
+The third-lowest layer of the OSI Reference Model is the ***network layer***. If the data link layer defines the boundaries of what is considered a network, the network layer defines how ***internetworks*** (interconnected networks) function.
+
+The network layer is the lowest one in the OSI model that is concerned with actually getting data from one computer to another.
+
+function:
+
+* Logical Addressing
+* Routing
+* Datagram Encapsulation
+* ***Fragmentation and Reassembly*** The network layer must send messages down to the data link layer for transmission. Some data link layer technologies limit the length of any message that can be sent. If the packet that the network layer wants to send is too large, the network layer must split the packet up (fragment it), send each piece to the data link layer, and then have the pieces reassembled once they arrive at the network layer on the destination machine.
+* Error Handling and Diagnostics
+
+The network interconnection devices that operate at the network layer are usually called ***routers***.
+
+### Transport Layer
+
+The physical layer handles the bits, the data link layer deals with local networks, and the network layer handles routing between networks. The transport layer, in contrast, is sufficiently conceptual that it no longer concerns itself with these nuts-and-bolts matters. It relies on the lower layers to move data between devices.
+
+The transport layer acts as a liaison of sorts between the abstract world of applications at the higher layers and the concrete functions of layers 1 to 3. 
