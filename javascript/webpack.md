@@ -1,4 +1,26 @@
 # Webpack
+
+好吧，我发现自己其实是需要一个完全，详细的guid的。
+
+安装webpack
+```bash
+
+$ npm install webpack -g
+
+```
+
+> 安装nodejs来安装npm
+
+> `-g`全局安装。是的可以执行安装module的命令。如果不带`-g`，通过`./node_modules/.bin/webpack`也可以执行对应命令
+
+
+### Configuration File
+
+* HMR Hot Module Replacement
+* Bundle Splitting
+* Asset Hashing
+
+
 1. 配置
   * 拆分成多个配置文件， 通过`--config`来指定所使用的config文件
   * 使用一个单一的配置文件，但是包含多个分支，通过npm的环境变量来决定最终产生的配置
