@@ -166,6 +166,24 @@ public class App
 
 * 需要提前讲什么是类和实例吗？
 
+扩展题目1，告知猜大了还是猜小了。
+
+题目2：求从１加到100的和
+```java
+    public static void main( String[] args )
+    {
+    	int sum = 0;
+    	for(int i = 1; i <= 100; i = i+1) {
+    		sum = sum + i;
+    	}
+    	System.out.println(sum);
+    }
+```
+
+#### 练习
+1. n!
+2. 60~70分及格，70~90分良好，90分以上优秀。让用户输入一个分数，提示等级。
+
 版本2，可以猜n次，并且每次提心到底是大还是小了：
 
 ```java
@@ -205,6 +223,4 @@ public class App
 }
 ```
 
-#### 练习
-1. n!
-2. 请用户输入姓名，年龄之类的信息，然后统一打出来
+
