@@ -69,15 +69,40 @@ public class App
 （***需要加入怎么读取标准输入吗？***）
 
 ```java
-int a = 10;
-int b = 20;
-System.out.println(a + b);
+  int a = 10; // 赋值语句
+  int b = 20;
+  System.out.println(a + b);
 
-System.out.print("a > b: ");
-System.out.println(a > b);
+  if (a > b) {
+    System.out.println("a大于b");
+  } else {
+    System.out.println("a小于等于b");
+  }
+```
 
-System.out.print("a < b: ");
-System.out.println(a < b);
+```java
+  Scanner reader = new Scanner(System.in);
+  System.out.println("请输入你的名字：");
+  String name = reader.nextLine();
+
+  System.out.print("你好，");
+  System.out.println(name);
+
+```
+
+```java
+  int sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10;
+  System.out.println(sum);
+```
+
+```java
+int i = 1;
+int sum = 0;
+while (i <= 10) {
+  sum = sum + i;
+  i = i + 1;
+}
+System.out.println(sum);
 ```
 
 * 程序有输入，输出，处理
@@ -181,5 +206,5 @@ public class App
 ```
 
 #### 练习
-1. 1 + ... + n
+1. n!
 2. 请用户输入姓名，年龄之类的信息，然后统一打出来
