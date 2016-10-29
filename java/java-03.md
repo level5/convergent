@@ -1,5 +1,7 @@
 # 03 类
 
+基本数据类型之外，高级数据类型
+
 ##　类的定义
 ```java
 package com.zzty.quickstart;
@@ -35,3 +37,9 @@ public static void main( String[] args )
     System.out.println(p.distanceFromOrigin());
 }
 ```
+
+* 引用变量，值变量
+* `null`
+* 类方法调用
+
+## String是一个类
