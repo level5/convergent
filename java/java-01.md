@@ -8,7 +8,10 @@
   ```bash
   java -version
   ```
-* 下载安装包, 并且安装好。这里注意32位和64位的区别
+* 下载安装包, 并且安装好。
+  - JDK, java SE Development Kit
+  - JRE, java SE Runtime Environment
+  - 这里注意32位和64位的区别
 * 配置并解释环境变量一下`JAVA_HOME`, `PATH`
 * 重新检测一下java是否安装
 
@@ -16,8 +19,7 @@
 
 * 下载并解压eclipse，注意Java和Eclipse的是相同的版本
 
-#### Maven
-
+#### ~~Maven(这部分可以先不用管了，因为可以使用Eclipse内置的maven)~~
 * 下载，解压Maven
 * 配置环境变量`PATH`, `M2_HOME`, `M2_OPTS`(Xmx1024m -Xss2048k -Xms256m -XX:PermSize=64m -XX:MaxPermSize=256m -XX:ReservedCodeCacheSize=64m )
 
@@ -29,7 +31,7 @@
 * 运行项目
 
 ```java
-package com.level5.java;
+package com.zzty.quickstart;
 
 /**
  * Hello world!
@@ -53,21 +55,8 @@ public class App
 * `;`的作用
 * `System.out.println` 标准输出
 
-#### 改动例子，加入变量，例如打印，
-（***需要加入怎么读取标准输入吗？***）
-
-```java
-  int a = 10; // 赋值语句
-  int b = 20;
-  System.out.println(a + b);
-
-  if (a > b) {
-    System.out.println("a大于b");
-  } else {
-    System.out.println("a小于等于b");
-  }
-```
-
+#### 改动例子，输出： 欢迎加入自在天涯训练营
+#### 改动例子，读取输入的名字xxx，输出： xxx，欢迎加入自在天涯训练营
 ```java
   Scanner reader = new Scanner(System.in);
   System.out.println("请输入你的名字：");
@@ -77,29 +66,16 @@ public class App
   System.out.println(name);
 
 ```
-
-```java
-  int sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10;
-  System.out.println(sum);
-```
-
-```java
-int i = 1;
-int sum = 0;
-while (i <= 10) {
-  sum = sum + i;
-  i = i + 1;
-}
-System.out.println(sum);
-```
-
+* 字符串
+* 变量
 * 程序有输入，输出，处理
   - 标准输出 `System.out.println()`
   - 输入要处理，就需要要保存起来，保存在内存中
     - 变量
       * 类型， `int`， `String`
 
-## 写第一个程序
+
+## 写第二个程序
 版本1，随机生成一个0~9的数字，然后读取用户的输入，并提示用户输入的结果是否正确。
 ```java
 package com.level5.java;
@@ -130,10 +106,13 @@ public class App
     }
 }
 ```
+新知识点：
+* `if-else`
+#### 练习
+1. 扩展题目1，告知猜大了还是猜小了。
 
-扩展题目1，告知猜大了还是猜小了。
-
-题目2：求从１加到100的和
+## 第三个程序
+求从１加到100的和
 
 ```java
     public static void main( String[] args )
@@ -149,8 +128,7 @@ public class App
 #### 练习
 1. n!
 2. 60~70分及格，70~90分良好，90分以上优秀。让用户输入一个分数，提示等级。
-
-版本2，随机生成一个0~99的数字，然后读取用户的输入，并提示用户输入的结果是否正确，用户有6次机会来猜数字是多少。
+3. （根据大家的反馈决定是否需要）版本2，随机生成一个0~99的数字，然后读取用户的输入，并提示用户输入的结果是否正确，用户有6次机会来猜数字是多少。
 
 ```java
 public class App
@@ -186,5 +164,3 @@ public class App
     }
 }
 ```
-
-
