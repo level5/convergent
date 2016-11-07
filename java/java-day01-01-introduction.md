@@ -31,7 +31,14 @@
 #### IDE
 
 * 下载并解压eclipse，注意Java和Eclipse的是相同的版本
-* 修改快捷键
+* 修改快捷键(按两次`ctrl+shift+L`打开)
+  - content assist        修改为 `Alt +　\`，和world completion冲突，需要删除这个快捷键
+  - run `Alt + Shift + X, J`
+  - debug `Alt + Shift + D, J`
+  - `Ctrl + 1`, 修复编译语法错误
+* 可以自己去设定IDE的主题，但是要注意IDE字体：
+  - 等宽字体
+  - 能够区分0和o，1和l
 
 #### ~~Maven(这部分可以先不用管了，因为可以使用Eclipse内置的maven)~~
 * 下载，解压Maven
