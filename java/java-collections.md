@@ -1,0 +1,20 @@
+#Java 集合类
+
+Java 提供一系列的类， 用来保存大量的数据在一个集合中。
+从大类上分为两种， 一种是线性集合， 都实现了Collection 接口， 另一类是实现了Map接口的散列表通常元素是key， value形式的键值对（key是唯一的）
+```
+                          |--->ArrayList
+              |--->List---|
+              |           |--->LinkedList
+              |
+Collection ---|
+              |          |--->HashSet
+              |--->Set---|--->LinkedHashSet
+                         |--->TreeSet
+                         
+                         
+        |---> HashMap
+Map  ---|---> LinkedHashMap
+        |---> TreeMap
+        
+```
