@@ -1,7 +1,7 @@
 ## float
 
 
-float是box在**当前行**向左或者向右移动。float属性仅仅适应于不是绝对定位的元素。根元素的float属性被user agent当做`none`。
+float是box在***当前行***向左或者向右移动。float属性仅仅适应于不是绝对定位的元素。根元素的float属性被user agent当做`none`。
 
 floating box的margin不会和相邻box的margin发生collapse。
 
@@ -12,9 +12,9 @@ floating box的margin不会和相邻box的margin发生collapse。
 ### float的一些规则：
 - 会一某种方式将浮动元素从文档流中删除
 - 浮动元素的外边距不会合并
-- 非替换元素浮动，必须指定width，否则宽度为0
+- ***非替换元素***浮动，必须指定width，否则宽度为0
 - none表示不浮动
-- 浮动元素的包含块是其最近的块级祖先元素，浮动元素会生成一个会计元素
+- 浮动元素的包含块是其最近的***块级祖先元素***，浮动元素会生成一个***块级元素***
 
 ### float的一些细节：
 - 浮动元素的左（右）外边界不能超出其包含块的左（右）内边界。
