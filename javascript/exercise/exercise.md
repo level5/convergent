@@ -25,6 +25,19 @@ a = [|"az", "toto", "picaro", "zone", "kiwi"|] -->
 ```
 
 
+solution:
+```js
+function partlist(arr) {
+    let result = [];
+    for (let i = 1; i< arr.length; i++) {
+      result.push([arr.slice(0, i).join(" "), arr.slice(i).join(" ")]);
+    }
+    return result;
+}
+```
+
+
+
 #### 2 数组中除去最大值和最小值之后的和
 
 ```
