@@ -50,6 +50,12 @@ $d
 ```
 {必须是一行的结束,}必须是一行的开始,而且他后面不能跟空白字符.
 
+sed的insert，append和change
+
+The change command clears the pattern space, having the same effect on the pattern space as the delete command. No command following the change command in the script is applied.
+
+The insert and append commands do not affect the contents of the pattern space. The supplied text will not match any address in subsequent commands in the script, nor can those commands affect the text. Also, the supplied text does not affect sed's internal line counter.
+
 * All editing commands in a script are applied in order to each line of input.
 * Commands are applied to all lines (globally) unless line addressing restricts the lines affected by editing commands.
 * The original input file is unchanged; the editing commands modify a copy of original input line and the copy is sent to standard output.
