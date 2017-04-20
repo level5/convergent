@@ -18,4 +18,7 @@ web storage is unique to a particular domain. Unlike cookies, there is no magica
 
 ### limit
 
-our limits for web storage are a bit variable, but in general they range from 5 to 10 MB. 
+our limits for web storage are a bit variable, but in general they range from 5 to 10 MB.
+
+
+## IndexedDB
