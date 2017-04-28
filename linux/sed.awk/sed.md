@@ -50,7 +50,38 @@ $d
 ```
 {必须是一行的结束,}必须是一行的开始,而且他后面不能跟空白字符.
 
-sed的insert，append和change
+
+#### s
+
+```bash
+
+[address]s/pattern/replacement/flags
+
+```
+
+flags:
+* n 替换发生在第n次匹配
+* g
+* p 将匹配的内容打印出来
+* w file 将匹配的内容写入文件
+
+分隔符可以使用`/`之外的其他符号
+
+
+替换中的特殊字符：
+* `&` 表示匹配的整个字符
+* `\n` capture
+* `\` 转移符
+
+#### d
+
+```bash
+
+/^$/d
+
+```
+
+#### insert，append和change
 
 The change command clears the pattern space, having the same effect on the pattern space as the delete command. No command following the change command in the script is applied.
 
@@ -59,3 +90,39 @@ The insert and append commands do not affect the contents of the pattern space. 
 * All editing commands in a script are applied in order to each line of input.
 * Commands are applied to all lines (globally) unless line addressing restricts the lines affected by editing commands.
 * The original input file is unchanged; the editing commands modify a copy of original input line and the copy is sent to standard output.
+
+#### list
+
+#### transform
+
+```bash
+
+[address]y/abc/xyz/ # 把abc对应的字符分别替换成xyz
+
+```
+
+
+#### print
+
+```bash
+
+[address]p
+
+```
+
+#### print line number
+
+```bash
+
+[address]=
+
+```
+
+#### n(next)
+
+输出匹配内容，然后调到下一行，但是命令不会回到第一行继续执行。
+
+
+#### q(quit)
+
+退出
