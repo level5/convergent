@@ -5,7 +5,6 @@
 # try-catch
 
 # finally
-  * return中使用finally，这个作为扩展，不一定要理解，但是要求避免这么写代码。
   * 什么时候将大家的sonar配置起来？？？
 
 # 运行时异常和受捕获异常

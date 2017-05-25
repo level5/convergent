@@ -46,5 +46,13 @@ tar -Jcvf filename.tar.xz FILES
 # tar 解压
 tar -vxf filename
 
+# 查看gateway
+ip route | grep default
+
+# 查看文件位置
+readlink -f <file-name>
+
+# 删除一个以-开头的文件
+rm -- <file-name>
 
 ```
