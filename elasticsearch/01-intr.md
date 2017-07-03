@@ -113,7 +113,7 @@ Elasticsearch  ⇒ Indices   ⇒ Types  ⇒ Documents ⇒ Fields
 > By default, every field in a document is indexed (has an inverted index) and thus is searchable.
 
 所以第一步要做的事情是：
-1. ndex a document per employee, which contains all the details of a single employee.
+1. index a document per employee, which contains all the details of a single employee.
 2. Each document will be of type employee.
 3. That type will live in the megacorp index.
 4. That index will reside within our Elasticsearch cluster.
@@ -179,6 +179,9 @@ curl -i -XHEAD http://localhost:9200/website/blog/123
 * `_index`: Where the document lives. `_index`必须是小写，而且不能以下划线`_`开头。
 * `_type`: The class of object that the document represents. A `_type` name can be lowercase or uppercase, but shouldn’t begin with an underscore or contain commas.
 * `_id`: The unique identifier for the document(是type中唯一还是整个indices唯一？)
+
+  The ID is a string that, when combined with the _index and _type, uniquely identifies a document in Elasticsearch.
+
 > when combined with the `_index` and `_type`, uniquely identifies a document in Elasticsearch.
 
 所以说，只需要是在type中唯一就可以了。
@@ -367,8 +370,33 @@ GET /megacorp/employee/_search
 
 ### 多节点
 
+
+#### cluster
+
 这部分先忽略，不影响弄懂....
 
 运行有相同`cluster.name`的多个实例，就自动建立起集群了。
 
- > A cluster is a group of nodes with the same cluster.name that are working together to share data and to provide failover and scale.
+> A cluster consists of one or more nodes with the same cluster.name that are working together to share their data and workload.
+> A cluster is a group of nodes with the same cluster.name that are working together to share data and to provide failover and scale.
+
+* master node, which is in charge of managing cluster-wide changes like creating or deleting an index, or adding or removing a node from the cluster.
+* The master node does not need to be involved in document-level changes or searches, which means that having just one master node will not become a bottleneck as traffic grows.
+
+As users, we can talk to any node in the cluster, including the master node. Every node knows where each document lives and can forward our request directly to the nodes that hold the data we are interested in.
+
+```bash
+curl -XGET 'localhost:9200/_cluster/health?pretty'
+```
+
+#### shards
+
+* primary shards
+
+  Each document in your index belongs to a single primary shard
+
+* replica shards
+
+  A replica shard is just a copy of a primary shard. Replicas are used to provide redundant copies of your data to protect against hardware failure, and to serve read requests like searching or retrieving a document.
+
+* The number of primary shards in an index is fixed at the time that an index is created, but the number of replica shards can be changed at any time.
