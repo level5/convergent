@@ -13,10 +13,12 @@
 * 不继承
 
 ```css
-background-image: none;
-background-image: url(http://www.example.com/bck.png);
+button {
+  background-image: none;
+  background-image: url(http://www.example.com/bck.png);
 
-background-image: inherit;
+  background-image: inherit;
+}
 ```
 
 #### background-position
@@ -49,6 +51,25 @@ button {
 
 ```
 
+### radial-gradient
+
+### repeating-radial-gradient
+
+
+
+### text-shadow
+
+```css
+.element {
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+.multiple {
+  text-shadow: 1px 1px 1px #ccc, 4px 4px 0px #dad7d7
+}
+
+
+```
 
 ### box-shadow
 
@@ -88,3 +109,104 @@ button {
 - `<color>`
 
   相关事项查看 `<color>` 。如果没有指定，则由浏览器决定——通常是color的值，不过目前Safari取透明。
+
+
+### transition css过渡
+
+```css
+
+a {
+  transition: box-shadow 1s ease 2.5s
+}
+
+
+```
+
+- `transition-property`: 要过渡的css属性的名字, all表示所有可以过渡的属性
+
+- `transition-duration`
+
+- `transition-timing-function`: 定义过渡期间的速度变化(ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier)
+
+- `transition-delay`: 定义过渡开始前的延时时间. 负数是立即开始,然后过渡过程中会半路结束
+
+### transform 2D变形
+
+
+问题: transform都是真对元素的center做的吗?
+
+- `scale` 缩放元素
+- `translate` 屏幕上移动元素
+- `rotate` 按照一定角度旋转元素
+- `skew` 沿X和Y轴对元素进行斜切
+- `matrix` ...
+
+
+```css
+
+.scale:hover {
+  transform: scale(1.4);
+}
+
+.translate:hover {
+  transform: translate(-20px, -20px);
+}
+
+.outer {
+  ...
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.rotate:hover {
+  transform: rotate(30deg);
+}
+
+.skew:hover {
+  transform: skew(40deg, 12deg);
+}
+
+```
+
+### transform 3D变形
+
+- `rotateX`, `rotateY`
+- `translate3D`
+
+### animation 动画
+
+两步:
+1. 定义`keyframes`
+2. 在`animation`中使用定义的`keyframes`
+
+```css
+
+@@keyframes pulse {
+  100% {
+    text-shadow: 0 0 5px #bbb;
+    box-shadow: 0 0 3px 4px #bbb;
+  }
+}
+
+.flipper:hover flipper-horizontal {
+  transform: rotateY(180deg);
+  animation: pulse 1s 1s infinite alternate both;
+}
+
+```
+
+对应的属性:
+* `animation-name`
+* `animation-duration`
+* `animation-timing-function`
+* `animation-iteration-count`
+* `animation-play-state`
+* `animation-delay`
+* `animation-fill-mode`: 默认是动画内外不干涉, 使用次属性覆盖这种行为
+* `animation-direction`
