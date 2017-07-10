@@ -1,6 +1,18 @@
 # CSS3
 
 
+### 颜色
+
+#### RGB
+
+#### RGBA
+
+#### HSL
+
+#### HSLA
+
+
+
 ### background
 
 #### background-color
@@ -53,6 +65,8 @@ button {
 
 ### radial-gradient
 
+
+
 ### repeating-radial-gradient
 
 
@@ -67,9 +81,12 @@ button {
 .multiple {
   text-shadow: 1px 1px 1px #ccc, 4px 4px 0px #dad7d7
 }
-
-
 ```
+
+* 第一个参数, 右侧偏移量
+* 第二个参数，下方偏移量
+* 第三个参数，模糊距离
+* 第四个参数，色值
 
 ### box-shadow
 
@@ -208,5 +225,5 @@ a {
 * `animation-iteration-count`
 * `animation-play-state`
 * `animation-delay`
-* `animation-fill-mode`: 默认是动画内外不干涉, 使用次属性覆盖这种行为
+* `animation-fill-mode`: 默认是动画内外不干涉, 使用次属性覆盖这种行为.
 * `animation-direction`
