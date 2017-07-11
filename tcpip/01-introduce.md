@@ -6,9 +6,14 @@
 
  A ***network*** is a set of hardware devices connected together, either physically or logically. This allows them to exchange information.
 
+ ***network***就是一组硬件物理或者逻辑上连接在一起，这样就允许他们交换信息．
+
  A networking ***protocol*** defines a set of rules, algorithms, messages, and other mechanisms that enables software and hardware in networked devices to communicate effectively. A protocol usually describes a means for communication between corresponding entities at the same OSI Reference Model layer in two or more devices.
 
 One way that networking technologies are categorized is based on the path used to carry data between devices. In ***circuit switching***, a circuit is first established and then used to carry all data between devices. In ***packet switching***, no fixed path is created between devices that communicate; it is broken into packets, each of which may take a separate path from sender to recipient.
+
+* circuit switching, 先建立起线路，然后使用线路来传输数据
+* packet switching，　没有固定的路径被建立起来用来通讯，数据被分解成packets, 然后通过独立的路径被发送到接受者.
 
 A ***connection-oriented protocol*** is one in which a logical connection is first established between devices prior to data being sent. In a ***connectionless protocol***, data is just sent without a connection being created.
 
@@ -16,26 +21,41 @@ Circuit-switched networking technologies are inherently(天生的) connection-or
 
 TCP/IP has two main protocols that operate at the transport layer of the OSI Reference Model. One is ***TCP***, which is connection-oriented; the other, the User Datagram Protocol (***UDP***), is connectionless.
 
+
 connection-oriented and connectionless protocols can be combined at different levels of an internetwork.  Just as a connection-oriented protocol can be implemented over an inherently connectionless protocol, the reverse is also true: a connectionless protocol can be implemented over a connection-oriented protocol at a lower level.
 
+Telnet(connection-oriented) running over IP(connectionless). IP can run over connection-oriented protocol like ATM(asynchronous transfer mode)
+
+
+The data items sent between networked devices are most generically called messages. Packet is one of a variety of similar words that are used in different contexts to refer to messages sent from one device to another.
+
 - ***Packet*** This term is considered by many to correctly refer to a message sent by protocols operating at the network layer of the OSI Reference Model.
+
 - ***Datagram*** This term is basically synonymous with packet and is also used to refer to network layer technologies. It is also often used to refer to a message that is sent at a higher level of the OSI Reference Model
+
 - ***Frame*** This term is most commonly associated with messages that travel at low levels of the OSI Reference Model. In particular, it is most commonly seen used in reference to data link layer messages.
+
 - ***Cell*** Frames and packets, in general, can be of variable length, depending on their contents; in contrast, a cell is most often a message that is fixed in size.
+
 - ***Protocol Data Unit (PDU) and Service Data Unit (SDU)*** These are the formal terms used in the OSI Reference Model to describe protocol messages. A ***PDU*** at layer ***N*** is a message sent between protocols at layer ***N***. It consists of layer ***N*** header information and an encapsulated message from layer ***N+1***, which is called both the layer ***N SDU*** and the layer ***N+1 PDU***.
+
+
 
 The general format of a networking message consists of a ***header***, followed by the data or ***payload*** of the message, followed optionally by a ***footer***. Header and footer information is functionally the same except for its position in the message; footer fields are only sometimes used, especially in cases where the data in the field is calculated based on the values of the data being transmitted.
 
 Three basic methods are used to address and transmit data between networked devices. A ***unicast*** transmission goes from one device to exactly one other; this is the most common method used for most message transactions. A ***broadcast*** transmission is sent from one device to all connected devices on a network. A ***multicast*** transmission is addressed and sent to a select group of devices.
 
-Networks are usually configured to share resources using one of two basic structural models. In a ***peer-to-peer*** network, each device is an equal, and none are assigned particular jobs. In a ***client-server*** network, however, devices are assigned particular roles—a small number of powerful computers are set up as servers and respond to requests from the other devices, which are clients.
+Networks are usually configured to share resources using one of two ***basic structural models***. In a ***peer-to-peer*** network, each device is an equal, and none are assigned particular jobs. In a ***client-server*** network, however, devices are assigned particular roles—a small number of powerful computers are set up as servers and respond to requests from the other devices, which are clients.
 
-<<<<<<< HEAD
 Several terms are often used to describe the relative sizes of networks and parts of networks. The most basic term is ***network*** itself, which can refer to most anything, but often means a set of devices connected using an OSI layer 2 technology. A ***subnetwork*** is a part of a network (or internetwork), as is a segment, though the latter often has a more specific meaning in certain technologies. An ***internetwork*** refers either generically to a very large network, or specifically, to a set of layer 2 networks connected using routers at layer 3.
 
 The generic noun ***internet*** is a short form for the word internetwork, while the proper noun Internet refers to the global internetwork of TCP/IP networks that we all know and use. The term ***intranet*** refers to an internal network that uses TCP/IP technologies as the Internet does. An ***extranet*** is like an intranet that is extended to individuals or organizations outside the company.
 
 ### 性能概念
+
+- ***bandwidth*** indicates the maximum amount of data that can pass from one point to another in a unit of time.
+- ***throughput*** is a measure of how much actual data can be sent per unit of time across a network, channel, or interface.
+- ***latency*** refers to the timing of data transfers on a communications channel or network
 
 While ***performance*** is one of the most important characteristics of any network, there are others that are equally important. In many cases, you must weigh the ***cost, quality, reliability, expandability, maintainability***, and other attributes of a network against overall performance. The faster you want your network to go, the more difficult it is to ensure that these other attributes are kept at sufficiently high levels.
 
@@ -129,15 +149,13 @@ These protocols do not establish a connection between devices. As soon as a devi
 * ***Unicast*** Messages These are messages that are sent from one device to another device; they are not intended for others.
 * ***Broadcast*** Messages As the name suggests, these messages are sent to every device on a network. You use them when you need to communicate a piece of information to everyone on the network, or when the sending station needs to send it to just one recipient, but doesn't know its address.
 * ***Multicast*** Messages These are a compromise between the previous two types. Multicast messages are sent to a group of stations that meet a particular set of criteria. These stations are usually related to each other in some way.
-
-=================================================
 * ***Unicast Addressing*** Unicast delivery requires that a message should be addressed to a specific recipient.
 * ***Broadcast Addressing*** Broadcasts are normally implemented via a special address that is reserved for that function. Whenever devices see a message sent to that address, they all interpret it as "This message goes to everyone."
 * ***Multicast Addressing*** Multicasts are the most complex type of message because they require a means of identifying a set of specific devices that will receive a message. It is often necessary to create several such groups, which may or may not partially overlap in their membership. Some mechanism is needed to manage which devices are in which groups.
 
 ## 性能
 
-###度量：speed， bandwidth, throughput, latency
+### 度量：speed， bandwidth, throughput, latency
 
 
 ## IP地址
