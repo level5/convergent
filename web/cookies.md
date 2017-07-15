@@ -63,3 +63,47 @@ Set-Cookie: name=Nicholas; path=/blog
 This cookie has four identifying characteristics: the cookie name, the domain, the path, and the secure flag.
 
 在重新设定 cookie 的值得时候， name， domain 和 path 都需要带，而且相同才能设定。
+
+# Authentication
+
+## cookies Vs. tokens
+
+### cookie
+
+### tokens
+
+
+***jwt***
+
+* compact
+* self-contained
+
+三部分：
+
+header.payload.signature
+
+* header
+* payload
+* signature: SHA256(base64(header)+"."+base64(payload), secret)
+
+
+http request header
+```
+Authorization: Bearer <token>
+```
+
+
+```
+client                                                            server
+
+      post /login with username and password  ----------------->
+                                                                  create JWT with secret
+
+      <---------------------------------------------- return JWT
+
+
+      send JWT on Authorization header ------------------------->  
+                                                                  check JWT signature
+
+      <------------------------------------send response to client
+```

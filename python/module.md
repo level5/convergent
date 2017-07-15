@@ -23,8 +23,8 @@ source env/bin/activate
 ```
 
 ```cmd
-
-env/Scripts/activate
+# windows下 
+env\Scripts\activate.bat
 
 ```
 
