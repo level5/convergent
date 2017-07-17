@@ -74,3 +74,74 @@ css注释
 * 相对定位，会占住文档流的位置
 * 绝对定位，不会占住文档流的位置
 * `z-index`
+
+## 背景
+
+```css
+
+h1 {
+  background-image: url("/img/bullet.gif");
+  background-repeat: repeat-x;/*repeat-y, no-repeat*/
+  background-position: 50% 50%; /*父元素的50%的位置对应图片的50%的位置*/
+}
+
+.box {
+  border-radius: 1em;
+}
+
+```
+
+## 链接
+
+```css
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover, a:active {
+  color: red;
+}
+
+a:hover, a:focus {
+  color: red;
+}
+
+a:hover {
+  text-decoration: none; /*下划线 消失*/
+  font-weight: bold;
+}
+
+a:hover {
+  color: #666;
+  text-decoration: none;
+  background-image: url(/img/underline-hover.git) repeat-x left bottom; /*图片来实现特殊下划线的效果*/
+}
+
+/*实现按钮的效果*/
+a {
+  display: block;
+  width: 6.6em;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #66a300;
+  background-color: #8cca12;
+  color: #fff;
+}
+
+/*css3*/
+a {
+  display: block;
+  width: 6.6em;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #66a300;
+  background-color: #8cca12;
+  color: #fff;
+}
+```
