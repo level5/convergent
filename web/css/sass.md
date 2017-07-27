@@ -140,3 +140,31 @@ aside[role="complementary"] {
   width: 31.25%;
 }
 ```
+
+
+#### `&`
+
+```scss
+a {
+  color: #0090B2;
+  &:hover {
+    color: #FF7A00;
+  }
+  &:active {
+    color: #B25500;
+  }
+}
+```
+
+产生
+```css
+a {
+  color: #0090B2;
+}
+a:hover {
+  color: #FF7A00;
+}
+a:active {
+  color: #B25500;
+}
+```

@@ -1,0 +1,23 @@
+// variables
+// !default 表示如果变量没有被赋值过,则赋值现在给的值,否则忽略
+$black:        hsl(0, 0%, 4%) !default
+
+// 文件下划线开始 _all.sass, 表示不需要单独编译成css文件
+
+// + 表示@include, =表示@mixin
+
+=clearfix
+  &:after
+    clear: both
+    content: " "
+    display: table
+
+.is-clearfix
+  +clearfix
+
+// 产生的结果是:
+// .is-clearfix:after {
+//   clear: both;
+//   content: " ";
+//   display: table;
+// }
