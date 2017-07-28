@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+.dropdown {
+  display: inline-flex;
+  position: relative;
+  vertical-align: top;
+}
+
+.dropdown-trigger {
+  display: block;
+}
+
+.button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  line-height: 1;
+  padding-top: 0.4rem;
+  padding-bottom: 0.35rem;
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  background-color: white;
+  box-shadow: none;
+  border-color: #dbdbdb;
+}
+
+.dropdown-menu {
+  display: block;
+  max-width: 20rem;
+  min-width: 12rem;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+}
+
+.dropdown-content {
+  border-radius: 3px;
+  display: block;
+  box-shadow:  0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.375rem 1rem;
+  position: relative;
+  text-decoration: none;
+}
+
+
+</style>
+</head>
+<body>
+<div class="dropdown is-active">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>Dropdown button</span>
+      <span class="icon is-small">
+        <i class="fa fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">
+        Dropdown item
+      </a>
+      <a class="dropdown-item">
+        Other dropdown item
+      </a>
+      <a href="#" class="dropdown-item is-active">
+        Active dropdown item
+      </a>
+      <a href="#" class="dropdown-item">
+        Other dropdown item
+      </a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item">
+        With a divider
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

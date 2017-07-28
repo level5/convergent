@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+}
+
+a {
+   cursor: pointer;
+   color: #7a7a7a;
+}
+
+.breadcrumb {
+   user-select: none;
+   display: flex;
+   align-items: stretch;
+}
+
+.breadcrumb ul {
+  display: flex;
+  flex-grow: 1;
+}
+
+.breadcrumb li {
+  align-items: center;
+}
+
+.breadcrumb li + li::before {
+  color: #4a4a4a;
+  content: '\0002f';
+}
+
+/* 特指度更高 */
+.breadcrumb.has-arrow-separator li + li::before {
+  color: #4a4a4a;
+  content: '\02192';
+}
+
+.breadcrumb li.is-active a {
+  cursor: default;
+  color: #363636;
+}
+
+.breadcrumb a {
+  padding: 0.5em 0.75em;
+}
+
+/*
+flex-direction 确立主轴。
+justify-content 定义了在当前行上，弹性项目沿主轴如何排布。
+align-items 定义了在当前行上，弹性项目沿侧轴默认如何排布。
+align-self 定义了单个弹性项目在侧轴上应当如何对齐，这个定义会覆盖由 align-items 所确立的默认值。
+*/
+.breadcrumb.is-centered ul {
+  justify-content: center;
+}
+
+</style>
+</head>
+<body>
+<nav class="breadcrumb">
+  <ul>
+    <li><a>Bulma</a></li>
+    <li><a>Documentation</a></li>
+    <li><a>Components</a></li>
+    <li class="is-active"><a>Breadcrumb</a></li>
+  </ul>
+</nav>
+
+<nav class="breadcrumb is-centered">
+  <ul>
+    <li><a>Bulma</a></li>
+    <li><a>Documentation</a></li>
+    <li><a>Components</a></li>
+    <li class="is-active"><a>Breadcrumb</a></li>
+  </ul>
+</nav>
+
+<nav class="breadcrumb has-arrow-separator">
+  <ul>
+    <li><a>Bulma</a></li>
+    <li><a>Documentation</a></li>
+    <li><a>Components</a></li>
+    <li class="is-active"><a>Breadcrumb</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

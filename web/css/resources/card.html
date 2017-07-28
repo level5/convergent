@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+* {
+  box-sizing: inherit;
+}
+
+.card {
+  background-color: white;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1)
+}
+
+.card-image {
+  display: block;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.image.is-4by3 {
+  /*padding-top的百分比对应的是width, 这样７５％就是４：３．因为整个.image中是没有内容的*/
+  padding-top: 75%;
+}
+
+.image.is-48x48 {
+  width: 48px;
+  height: 48px;
+}
+
+/* 然后img是绝对定位,拉升到和.image一样 */
+.image img {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.card-content {
+  padding: 1.5rem;
+  display: block;
+}
+
+.media {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.media-left {
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.media-content {
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: left;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+
+</style>
+</head>
+<body>
+
+<div style="width: 30%">
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+      <a>#css</a> <a>#responsive</a>
+      <br>
+      <small>11:09 PM - 1 Jan 2016</small>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
