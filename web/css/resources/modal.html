@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+.modal {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  animation: display-none-transition 1s both;
+}
+
+.modal-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.modal-content {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 1.2rem;
+  background: white;
+  max-height: calc(100vh - 40vh);
+  width: 640px;
+}
+
+.modal-close {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  height: 32px;
+  width: 32px;
+  background-color: rgba(10, 10, 10, 0.1);
+  border: none;
+  border-radius: 290486px;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.modal-close:hover {
+  background-color: rgba(10, 10, 10, 0.4);
+}
+
+.modal-close::before {
+  height: 2px;
+  width: 50%;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 50%;
+  background-color: white;
+   transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.modal-close::after {
+  height: 50%;
+  width: 2px;
+  display: block;
+  content: "";
+  position: absolute;
+  left: 50%;
+  background-color: white;
+   transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.modal.hide {
+  display: none;
+}
+
+
+@keyframes display-none-transition {
+  0% {
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+<body>
+<button>click</button>
+<div class="modal hide">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    Any other Bulma elements you want. Any other Bulma elements you want.
+    Any other Bulma elements you want. Any other Bulma elements you want.
+    Any other Bulma elements you want. Any other Bulma elements you want.
+  </div>
+  <button class="modal-close is-large"></button>
+</div>
+<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('button').click(function() {
+      $('.modal').toggleClass('hide')
+    });
+  })
+</script>
+</body>
+</html>

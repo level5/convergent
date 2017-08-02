@@ -130,6 +130,8 @@ button {
 
 ### transition css过渡
 
+> [CSS animations triggered when elements are visible on-screen](https://www.newventuresoftware.com/blog/CSS-animations-triggered-when-elements-are-visible-on-screen)
+
 ```css
 
 a {
@@ -150,7 +152,7 @@ a {
 ### transform 2D变形
 
 
-问题: transform都是真对元素的center做的吗?
+问题: transform都是针对元素的center做的吗?
 
 - `scale` 缩放元素
 - `translate` 屏幕上移动元素
