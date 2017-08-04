@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+div {
+  width: 300px;
+  height: 200px;
+  margin: 2rem;
+  box-sizing: border-box
+}
+
+.box-shadow-border {
+  background: yellow;
+  /*两个为0的便宜， 加上0的模糊值， 得到的是实线边框*/
+  box-shadow: 0 0 0 10px #222222;
+}
+
+.box-shadow-multi-border {
+  background: yellow;
+  box-shadow: 
+     0 0 0 10px #222222,
+    0 0 0 15px deeppink, 
+    0 2px 5px 15px rgba(0, 0, 0, .6);
+}
+
+/*box-shadow的缺点是只能画实线边框*/
+
+.outline-border {
+  background: #222222;
+  border: 10px solid #222222;
+  outline: 2px dashed white;
+  outline-offset: -20px;
+  border-radius: 15px;
+}
+
+.inner-radius {
+  border-radius: 15px;
+  background: yellowgreen;
+  outline: 15px solid #222222;
+  box-shadow: 0 0 0 10px #222222;
+}
+
+</style>
+</head>
+<body>
+
+<div class="box-shadow-border"></div>
+
+<div class="box-shadow-multi-border"></div>
+
+<div class="outline-border"></div>
+
+<div class="inner-radius"></div>
+</body>
+</html>

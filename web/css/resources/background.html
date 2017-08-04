@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+div {
+  width: 300px;
+  height: 200px;
+  margin: 2rem;
+}
+
+.border-without-clip {
+  border: 10px dashed #ff0066;
+  background: orange;
+}
+
+.border-clip {
+  border: 10px dashed #ff0066;
+  background: orange;
+  /*默认值是border-box, 背景会延伸到border下*/
+  background-clip: padding-box;
+}
+
+.linear-gradient-1  {
+  background: linear-gradient(#fb3, #58a);
+}
+
+.linear-gradient-2  {
+  background: linear-gradient(#fb3 20%, #58a 80%);
+}
+
+.linear-gradient-3  {
+  background: linear-gradient(#fb3 50%, #58a 50%);
+}
+
+.linear-gradient-4  {
+  /* 如果色标的位置比前面的数字小，就会设置为前面的值的最大值 */
+  background: linear-gradient(#fb3 30%, #58a 0);
+  background-size: 100% 30px;
+  background-repeat: no-repeat;
+  border: 10px solid #ff0066;
+}
+
+.linear-gradient-5  {
+  background: linear-gradient(#fb3 30%, #58a 0, #58a 60%, yellow 0);
+  background-size: 100% 30px;
+}
+.linear-gradient-6  {
+  background: linear-gradient(to right, #fb3 50%, #58a 0);
+  background-size: 30px 100%;
+}
+.linear-gradient-7  {
+  background: repeating-linear-gradient(45deg, #fb3, #58a 30px);
+}
+.linear-gradient-8  {
+  background: repeating-linear-gradient(45deg, #fb3, #fb3 15px, #58a 15px, #58a 30px);
+}
+</style>
+</head>
+<body>
+
+<div class="border-without-clip"></div>
+
+<div class="border-clip"></div>
+
+<div class="linear-gradient-1"></div>
+<div class="linear-gradient-2"></div>
+<div class="linear-gradient-3"></div>
+<div class="linear-gradient-4"></div>
+<div class="linear-gradient-5"></div>
+<div class="linear-gradient-6"></div>
+<div class="linear-gradient-7"></div>
+<div class="linear-gradient-8"></div>
+</body>
+</html>
