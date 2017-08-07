@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+body > div {
+  width: 300px;
+  height: 200px;
+  margin: 2rem;
+}
+
+.radius {
+  width: 200px;
+  height: 200px;
+  border-radius: 50% 50%; /* 可以根据高宽来自动调整圆或者椭圆 */
+  box-sizing: border-box;
+  background: #333333;
+}
+
+.half {
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  background-color: #333333;
+  /* border-top-left-radius: 100px 200px;
+  border-top-right-radius: 100px 200px; */
+  /* border-radius: 100px 100px 0 0 / 200px 200px 0 0; */
+  border-radius: 50% / 100% 100% 0 0; /* 因为底部取了0, 所以上面是多少也就无所谓了 */
+}
+
+.quarter {
+  width: 200px;
+  height: 100px;
+  box-sizing: border-box;
+  background-color: #333333;
+  border-radius: 100% 0 0 0/ 100% 0 0 0; /* 因为底部取了0, 所以上面是多少也就无所谓了 */
+  /* border-top-left-radius: 100% 100%; */
+}
+
+.skew {
+  padding: 1em;
+  font-size: 20px;
+  line-height: 1em;
+  border: none;
+  background: #5555ff;
+  color: white;
+  transform: skewX(-45deg);
+  cursor: pointer;
+}
+
+.skew:hover {
+  background: #5575ff;
+}
+
+.skew > div {
+  transform: skewX(45deg);
+}
+
+.another-skew {
+  font-size: 20px;
+  padding: 1em;
+  border: none;
+  color: white;
+  position: relative;
+  background: transparent;
+}
+
+.another-skew::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #5555ff;
+  z-index: -1;
+  transform: skewX(-45deg);
+}
+
+.pic {
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+
+.pic > img {
+  height: 100%;
+  transform: rotate(-45deg) scale(2);
+}
+
+.path-clip {
+  height: 100%;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transition: 1s clip-path;
+}
+
+.path-clip:hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.cut {
+  line-height: 100%;
+  text-align: center;
+  color: white;
+  font-family: serif;
+  /* background: #5555ff; */
+  background: linear-gradient(-45deg, transparent 15px, #5555ff 0);
+}
+
+.cut::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
+}
+
+.cut-half {
+  line-height: 100%;
+  text-align: center;
+  color: white;
+  font-family: serif;
+  /* background: #5555ff; */
+  background:
+    /*左右类似于positon的百分比*/
+    linear-gradient(45deg, transparent 15px, #5555ff 0) left,
+    linear-gradient(-45deg, transparent 15px, #222222 0) right;
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+}
+
+.cut-half::before {
+  display: inline-block;
+  height: 100%;
+  content: "";
+  vertical-align: middle;
+}
+
+</style>
+</head>
+<body>
+
+<div>
+  <div class="radius"></div>
+</div>
+
+<div>
+  <div class="half"></div>
+</div>
+
+<div>
+  <div class="quarter"></div>
+</div>
+
+<div>
+  <button class="skew">
+    <div>CLICK ME</div>
+  </button>
+</div>
+
+<div>
+  <button class="another-skew">CLICK ME</button>
+</div>
+
+<div class="pic">
+  <img src="darth.vader.01.jpeg" />
+</div>
+
+
+<div>
+  <img class="path-clip" src="darth.vader.01.jpeg" />
+</div>
+
+<div class="cut">
+  Run......
+</div>
+
+<div class="cut-half">
+  Run......
+</div>
+
+</body>
+</html>

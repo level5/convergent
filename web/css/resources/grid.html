@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+div:not([data="grid"]) {
+  width: 300px;
+  height: 200px;
+  margin: 2rem;
+  border: 1px solid #222222;
+}
+
+
+/* `column`, `float`, `clear`, and `vertical-align` have no effect on a grid container. */
+.grid {
+  margin: 10rem;
+  display: grid;
+  border: 1px solid #222222;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 50% 50%;
+}
+
+.grid-fr {
+  margin: 10rem;
+  display: grid;
+  border: 1px solid #222222;
+  grid-template-columns: 1fr 2fr;
+}
+
+</style>
+</head>
+<body>
+<div class="grid" data="grid">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div data="grid" class="grid-fr">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+</body>
+</html>
