@@ -95,3 +95,14 @@ plugin的作用：
 ### ProviderPlugin
 
 ### expose-loader(不推荐)
+
+## Code Splitting
+
+* 通过entry point来分割
+  - 重复代码
+  - 不能动态的分割代码
+
+* 使用`commonsChunkPlugin`
+
+* dynamic load
+   - `import()`返回promise
