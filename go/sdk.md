@@ -34,4 +34,6 @@ func main() {
 
 如果不存在标签，编码和解码过程会试图以大小写无关的方式，直接使用字段的名字进行匹配。
 
-[如何处理optional的字段](https://stackoverflow.com/questions/24216510/empty-or-not-required-struct-fields-in-golang)
+如何处理optional的字段:
+* [stackoverflow](https://stackoverflow.com/questions/24216510/empty-or-not-required-struct-fields-in-golang)
+* [看上去这篇可以解决](https://willnorris.com/2014/05/go-rest-apis-and-pointers)
