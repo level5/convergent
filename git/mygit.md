@@ -173,7 +173,7 @@ git checkout <branch-name>
 
 ```
 
-## 支持当前流程所需要的git命令，由最小集合增加
+#### 支持当前流程所需要懂的git命令
 
 ```bash
 
@@ -192,6 +192,8 @@ git remote add upstream git://host/xxx.git
 
 # 查看一下是否添加成功，需要多两条upstream的记录
 git remote -v
+
+# 前面的操作都是一次性的，之后再不需要做这些操作了。
 
 # 将项目仓库的内容同步到本地
 git fetch upstream
@@ -218,7 +220,13 @@ git commit -m <commit-message>
 # 将当前staged的文件合入到上一个提交。如果上一个提交已经同步到远程仓库，不要做这样的操作
 git commit --amend
 
-# 
+git checkout master
+
+git checkout dashboard
+
+# 比如现在要开发新功能，那应该从orign/master来创建新的分支
+git checkout -b alert origin/master
+
 
 # n天过去了，我在本地做了多个提交，同时项目仓库的代码已经加入多个提交。如果我们就这样做合并，会有冲突。所以先把代码合并一下。
 
@@ -227,7 +235,53 @@ git fetch upstream
 
 # 这个时候如果upstream/master上就是项目最新的代码了。需要合入到dashboard的文职
 
-# 这个时候有两种命令，凭喜好选择，
-#
+# 切换到dashboard分支
+git checkout dashboard
+# 这个时候有两种命令，凭喜好选择，待续补充两者的区别。
+git rebase origin/master
+# 或者
+git merge origin/master
+
+# 如果此时合并有冲突，会发现当前branch变成一个很奇怪的名字了。
+
+# 这个时候可以手动解决冲突，或者使用工具来解决。
+
+# 手动解决的话，可以git diff查看冲突，修改后git add修改的文件。
+# 推荐还是使用工具。默认已经配置了一个工具，这个可以自己在git config修改。
+git mergetool
+
+# 解决冲突后。执行对应的命令继续
+git rebase --continue
+# 或者
+git merge --continue
+
+# 如果发现自己合乱了，想放弃，执行
+git rebase --abort
+# 或者
+git merge --abort
+
+# 本地合完最新的代码，需要同步到fork的仓库再做merge request
+
+# 由于CI的原因，想要编译成功需要提交master分支。
+
+# 如果不需要生成编译包，只是为了做MR，可以push一个相同名字的远程分支。
+git push origin dashboard:dashboard
+
+# 如果需要编译包，这条命令的危险性就是会覆盖master。原来master的代码会被覆盖了。
+git push -f origin dashboar:master
+
+```
+
+#### 进一步加深了解的命令
+
+```bash
+
+# 在不同分支切换时，如果有修改的内容不想提交，切换的时候有可能冲突，这个时候可以讲改动存入暂存区
+git stash
+
+# 从暂存区取回改动
+git stash pop
+
+# 待续...
 
 ```
